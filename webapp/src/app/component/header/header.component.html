@@ -1,22 +1,50 @@
-<mat-toolbar class="fxLayout dark" 
-style="width: 100%;
-      height: 80px;
-      flex-direction: row;
-      justify-content: space-between;
-      background-color: black;
-      color: ghostwhite;">
-    <div class="fxLayout" style="flex-direction: row; align-items: center;">
-      <mat-icon></mat-icon>
-      <span>&nbsp;Booking Booth</span>
-    </div>
-    <div>
-      <button mat-flat-button style="background-color: black; color: ghostwhite;">Event</button>
-      <button mat-flat-button [matMenuTriggerFor]="menu" style="background-color: black; color: ghostwhite;">Details</button>
+<mat-toolbar
+  class="fxLayout dark"
+  style="
+    width: 100%;
+    height: 80px;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: black;
+    color: ghostwhite;
+  "
+>
+  <div class="fxLayout" style="flex-direction: row; align-items: center">
+    <mat-icon></mat-icon>
+    <span>&nbsp;Booking Booth</span>
+  </div>
+  <!-- <div class ="navbar">
+      <ul class="nav-links" [ngClass]="{ 'show': showMenu}">
+      <li><button mat-flat-button style="background-color: black; color: ghostwhite;">Event</button></li>
+      <li><button mat-flat-button [matMenuTriggerFor]="menu" style="background-color: black; color: ghostwhite;">Details</button></li>
       <mat-menu #menu="matMenu">
         <button mat-menu-item routerLink="/movie/blackadam">Black Adam</button>
         <button mat-menu-item><a href="/movie/blackpanther">Black Panther</a></button>
       </mat-menu>
-      <button mat-flat-button style="background-color: black; color: ghostwhite;">Box office</button>
-      <button mat-flat-button style="background-color: black; color: ghostwhite;">About us</button>
-    </div>  
-    </mat-toolbar>
+      <li><button mat-flat-button style="background-color: black; color: ghostwhite;">Box office</button></li>
+      <li><button mat-flat-button style="background-color: black; color: ghostwhite;">About us</button></li>
+      </ul>
+      <div class="menu-icon" (click)="toggleMenu()">
+        &#9776;
+      </div>
+    </div>   -->
+  <nav class="navbar">
+    <div class="menu-icon" (click)="toggleSidebar()">
+      &#9776;
+      <!-- Icon สามขีด -->
+    </div>
+  </nav>
+
+  <!-- Sidebar -->
+  <div class="sidebar" [ngClass]="{ active: sidebarVisible }">
+    <a href="javascript:void(0)" class="close-btn" (click)="toggleSidebar()"
+      >&times;</a
+    >
+    <ul>
+      <li><a routerLink="/">Zone</a></li>
+      <li><a routerLink="/booth">Booth</a></li>
+      <li><a href="/login">Login/Register</a></li>
+      <!-- <li><a href="#">Contact</a></li> -->
+    </ul>
+  </div>
+</mat-toolbar>

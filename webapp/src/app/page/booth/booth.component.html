@@ -1,0 +1,18 @@
+<app-header></app-header>
+  <div class="main d-flex flex-wrap" *ngIf="booths.length > 0; else noBooths">
+    <div class="card" *ngFor="let booth of booths; trackBy: trackById">
+      <div class="card-body">
+        <h5 class="card-title">{{ booth.booth_name }}</h5>
+        <p class="card-text">{{ booth.booth_size }}</p>
+        <p class="card-text">{{ booth.booth_status }}</p>
+        <p class="card-text">{{ booth.price | number }} THB</p>
+      </div>
+    </div>
+  </div>
+  <ng-template #noBooths>
+    <p>No booths available.</p>
+  </ng-template>
+  
+
+
+  
